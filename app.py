@@ -9,7 +9,7 @@ usuario = None
 def index():
     global usuario
     if usuario != None:
-        return redirect(url_for("gestor"))
+        usuario.clear()
     return render_template("index.html")
 
 @app.route("/iniciarsesion", methods=["POST", "GET"])

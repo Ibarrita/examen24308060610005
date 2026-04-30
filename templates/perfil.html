@@ -2,6 +2,6 @@
 
 {% block content %}
 <h1 class="text-center">Perfil</h1>
-<p>Nombre: {{usuario.get("nombre")}}</p>
-<p>Email: {{usuario.get("email")}}</p>
+<p>Nombre: {{session.get("nombre")}}</p>
+<p>Email: {{session.get("email")}}</p>
 {% endblock %}

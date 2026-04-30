@@ -1,5 +1,5 @@
 from tareas import GestorTareas, ejemplo_uso
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "secreto"
@@ -10,6 +10,7 @@ def index():
     global usuario
     if usuario != None:
         usuario.clear()
+        session.clear()
     return render_template("index.html")
 
 @app.route("/iniciarsesion", methods=["POST", "GET"])
@@ -21,6 +22,10 @@ def iniciarsesion():
         password = request.form.get("password")
         usuario = gestor.acceder(email, password)
         if usuario != None:
+            session["nombre"] = usuario["nombre"]
+            session["email"] = usuario["email"]
+            session["password"] = usuario["contraseña"]
+            session["logueado"] = True
             return redirect(url_for("gestor"))
         elif usuario == None:
             flash("Error al iniciar sesión", "error")
@@ -58,6 +63,12 @@ def gestor():
 @app.route("/acercade")
 def acercade():
     return render_template("about.html")
+
+@app.route("/perfil")
+def perfil():
+    if usuario != None:
+        return render_template("perfil.html")
+    return redirect(url_for("index"))
 
 if __name__ == '__main__':
     #ejemplo_uso()

@@ -19,14 +19,14 @@
                         <a class="nav-link active" aria-current="page" href="/gestor">Inicio</a>
                         <a class="nav-link" href="/acercade">Acerca de</a>
                         <a class="nav-link" href="/">
-                            {% if usuario is not none %}
+                            {% if session.get("logueado") is none %}
                                 Iniciar sesión
                             {% else %}
                                 Cerrar sesión
                             {% endif %}
                         </a>
                         <a class="nav-link" href="/crearcuenta">Registrarse</a>
-                        {% if usuario is none %}
+                        {% if session.get("logueado") is not none %}
                         <a class="nav-link" href="/perfil">Perfil</a>
                         {% endif %}
                     </div>

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center">Perfil</h1>
+<p>Nombre: {{usuario.get("nombre")}}</p>
+<p>Email: {{usuario.get("email")}}</p>
+{% endblock %}

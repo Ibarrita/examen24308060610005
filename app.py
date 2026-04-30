@@ -55,6 +55,10 @@ def gestor():
         return render_template("gestor.html")
     return redirect(url_for("index"))
 
+@app.route("/acercade")
+def acercade():
+    return render_template("about.html")
+
 if __name__ == '__main__':
     #ejemplo_uso()
     app.run(debug=True)

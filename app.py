@@ -51,7 +51,9 @@ def registrar():
         
 @app.route("/gestor")
 def gestor():
-    return render_template("gestor.html")
+    if usuario != None:
+        return render_template("gestor.html")
+    return redirect(url_for("index"))
 
 if __name__ == '__main__':
     #ejemplo_uso()

@@ -19,9 +19,9 @@ No. control: 24308060610005
 
 # Capturas
 
-![1](static\images\1.png)
-![2](static\images\2.png)
-![3](static\images\3.png)
-![4](static\images\4.png)
-![5](static\images\5.png)
-![5](static\images\6.png)
+![1](static/images/1.png)
+![2](static/images/2.png)
+![3](static/images/3.png)
+![4](static/images/4.png)
+![5](static/images/5.png)
+![5](static/images/6.png)
